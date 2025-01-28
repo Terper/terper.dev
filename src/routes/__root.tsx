@@ -1,9 +1,10 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import Header from "../components/Header";
 import NotFound from "../components/NotFound";
 import Footer from "../components/Footer";
 import PageContainer from "../components/PageContainer";
+import { Suspense } from "react";
+import TanStackRouterDevtools from "../TanStackRouterDevtools";
 
 export const Route = createRootRoute({
   component: () => (
@@ -13,7 +14,9 @@ export const Route = createRootRoute({
         <Outlet />
       </PageContainer>
       <Footer />
-      <TanStackRouterDevtools />
+      <Suspense>
+        <TanStackRouterDevtools />
+      </Suspense>
     </>
   ),
   notFoundComponent: () => <NotFound />,
