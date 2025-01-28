@@ -9,4 +9,4 @@ const TanStackRouterDevtools =
         }))
       );
 
-export default TanStackRouterDevtools;
+export { TanStackRouterDevtools };
