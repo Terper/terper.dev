@@ -5,7 +5,11 @@ type Props = {
 };
 
 const PageContainer = ({ children }: Props) => {
-  return <div className="min-h-[calc(100vh-56px)]">{children}</div>;
+  return (
+    <main className="min-h-[calc(100vh-60px)] max-w-5xl m-auto">
+      {children}
+    </main>
+  );
 };
 
 export default PageContainer;
