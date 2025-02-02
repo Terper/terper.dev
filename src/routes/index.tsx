@@ -19,83 +19,7 @@ const generateSkillArray = (skillArray: string[]) => {
   return output;
 };
 
-/*
-const formatUpdateDate = (input: string) => {
-  const currentTime = new Date(Date.now()).getTime();
-  const difference = currentTime - new Date(input).getTime();
-
-  const weekDifference = Math.floor(difference / (1000 * 60 * 60 * 24 * 7));
-
-  let output = "";
-
-  if (weekDifference > 0) {
-    output += weekDifference;
-    if (weekDifference > 1) {
-      output += " weeks ago";
-    } else {
-      output += " week ago";
-    }
-    return output;
-  }
-
-  const dayDifference = Math.floor(difference / (1000 * 60 * 60 * 24));
-
-  if (dayDifference > 0) {
-    output += dayDifference;
-    if (dayDifference > 1) {
-      output += " days ago";
-    } else {
-      output += " day ago";
-    }
-    return output;
-  }
-
-  const hourDifference = Math.floor(difference / (1000 * 60 * 60));
-
-  if (hourDifference > 0) {
-    output += hourDifference;
-    if (hourDifference > 1) {
-      output += " hours ago";
-    } else {
-      output += " hour ago";
-    }
-    return output;
-  }
-
-  const minuteDifference = Math.floor(difference / (1000 * 60));
-
-  output += minuteDifference;
-
-  if (minuteDifference > 1) {
-    output += " minutes ago";
-  } else {
-    output += " minute ago";
-  }
-
-  return output;
-};
-*/
-
 function RouteComponent() {
-  /*
-  const query = useQuery({
-    queryKey: ["github repos"],
-    queryFn: async (): Promise<GhRepos[]> => {
-      const response = await fetch("https://api.github.com/users/Terper/repos");
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      return await data
-        .sort(
-          (a: GhRepos, b: GhRepos) =>
-            new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-        )
-        .slice(0, 5);
-    },
-  });
-  */
-
   return (
     <div className="flex flex-col gap-32 pb-32 px-4">
       <div className="flex flex-col md:flex-row md:px-32 pt-32 gap-16">
@@ -154,11 +78,6 @@ function RouteComponent() {
           ))}
         </div>
       </div>
-      {/*
-      <div className="flex md:px-32 flex-col gap-8">
-        <h2 className="m-auto md:m-0 text-3xl">Noteworthy projects</h2>
-      </div>
-      */}
       <div className="flex md:px-32 flex-col gap-8">
         <h2 className="m-auto md:m-0 text-3xl">Experience</h2>
         <div className="flex flex-col gap-8">
@@ -190,25 +109,6 @@ function RouteComponent() {
           ))}
         </div>
       </div>
-      {/*}
-      <div className="p-4 flex gap-6 flex-col m-auto md:m-0 w-fit max-w-prose">
-        <h2 className="text-xl">
-          Check out my most recently updated repositories
-        </h2>
-        <div className="flex flex-col gap-4">
-          {query.isSuccess &&
-            query.data.map((item, index) => (
-              <a href={item.html_url} key={index} className="">
-                <div className="flex gap-4 justify-between">
-                  <span className="text-lg">{item.full_name}</span>
-                  <span>{formatUpdateDate(item.updated_at)}</span>
-                </div>
-                <p className="text-sm">{item.description}</p>
-              </a>
-            ))}
-        </div>
-      </div>
-      {*/}
     </div>
   );
 }
