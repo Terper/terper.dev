@@ -66,6 +66,14 @@ export const skills = [
         text: "Tailwind CSS",
         icon: "tailwindcss",
       },
+      {
+        text: "Flask",
+        icon: "flask",
+      },
+      {
+        text: "Express",
+        icon: "express",
+      },
     ],
   },
   {
@@ -211,6 +219,20 @@ export const education = [
     website: "https://www.arcada.fi",
     programmeWebsite:
       "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/information-technology-swedish-programme",
+  },
+  {
+    school: "Åland Vocational School",
+    logo: (
+      <img
+        src="https://www.gymnasium.ax/sites/default/files/images/page_section_logo/logo_ayg_white_0.svg"
+        className="h-16"
+      ></img>
+    ),
+    degree: "Vocational degree",
+    field: "Datanom",
+    from: "2019",
+    to: "2022",
+    website: "https://www.gymnasium.ax/alands-yrkesgymnasium",
   },
 ];
 

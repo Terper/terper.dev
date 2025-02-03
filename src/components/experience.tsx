@@ -46,7 +46,7 @@ const Experience = () => {
                   <p className="max-w-lg">{item.description}</p>
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-end flex-wrap-reverse gap-2">
+              <CardFooter className="flex justify-end flex-wrap gap-2">
                 {generateSkillArray(item.skills).map((skill, index) => (
                   <Badge variant="outline" key={index} className="flex gap-2">
                     <img

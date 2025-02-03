@@ -34,13 +34,19 @@ const Education = () => {
                   </div>
                 </CardTitle>
                 <CardDescription className="text-lg">
-                  <Link
-                    className="text-lg hover:underline"
-                    to={item.programmeWebsite}
-                    target="_blank"
-                  >
-                    {item.degree} - {item.field}
-                  </Link>
+                  {item.programmeWebsite ? (
+                    <Link
+                      className="text-lg hover:underline"
+                      to={item.programmeWebsite ?? ""}
+                      target="_blank"
+                    >
+                      {item.degree} - {item.field}
+                    </Link>
+                  ) : (
+                    <>
+                      {item.degree} - {item.field}
+                    </>
+                  )}
                 </CardDescription>
               </CardHeader>
               <CardContent>
