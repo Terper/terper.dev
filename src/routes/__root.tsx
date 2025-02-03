@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { TanStackRouterDevtools } from "../dev-tools";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/ui/toaster";
 
 export const Route = createRootRoute({
   component: () => (
@@ -15,6 +16,7 @@ export const Route = createRootRoute({
         </main>
       </div>
       <Footer />
+      <Toaster />
       <Suspense>
         <TanStackRouterDevtools />
       </Suspense>

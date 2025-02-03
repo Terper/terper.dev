@@ -21,7 +21,11 @@ const Education = () => {
               <CardHeader>
                 <CardTitle>
                   <div className="flex justify-between items-center ">
-                    <Link className="text-xl hover:underline" to={item.website}>
+                    <Link
+                      className="text-xl hover:underline"
+                      to={item.website}
+                      target="_blank"
+                    >
                       {item.school}
                     </Link>
                     <span>
@@ -33,6 +37,7 @@ const Education = () => {
                   <Link
                     className="text-lg hover:underline"
                     to={item.programmeWebsite}
+                    target="_blank"
                   >
                     {item.degree} - {item.field}
                   </Link>

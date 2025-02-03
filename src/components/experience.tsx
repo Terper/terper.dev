@@ -24,7 +24,11 @@ const Experience = () => {
               <CardHeader>
                 <CardTitle>
                   <div className="flex justify-between items-center">
-                    <Link to={item.link} className="text-xl hover:underline">
+                    <Link
+                      to={item.link}
+                      className="text-xl hover:underline"
+                      target="_blank"
+                    >
                       {item.company}
                     </Link>
                     <span>
