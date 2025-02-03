@@ -1,4 +1,4 @@
-import { skills } from "./indexData";
+import { skills } from "./index-data";
 
 const generateSkillArray = (skillArray: string[]) => {
   const output: { text: string; icon: string }[] = [];

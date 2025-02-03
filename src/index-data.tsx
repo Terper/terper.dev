@@ -1,3 +1,5 @@
+import { Github, Linkedin } from "lucide-react";
+
 export const skills = [
   {
     category: "Languages",
@@ -149,8 +151,8 @@ export const experience = [
       "Android Studio",
       "XCode",
     ],
-    from: "18.05.2022",
-    to: "28.02.2023",
+    from: "May 2022",
+    to: "Feb 2023",
   },
   {
     company: "Deductive labs",
@@ -161,12 +163,18 @@ export const experience = [
         className="h-16"
       ></img>
     ),
+    logoDark: (
+      <img
+        src="https://deductivelabs.com/wp-content/themes/deductivelabs/images/logo-white.svg"
+        className="h-16"
+      ></img>
+    ),
     role: "Internship",
     description:
       "Experimented with various cybersecurity solutions. Wrote ansible scripts to automate setups for different devices and prototyped a website for creating forms.",
     skills: ["React", "TypeScript", "Ansible", "Firestore"],
-    from: "28.02.2022",
-    to: "08.04.2022",
+    from: "Feb 2022",
+    to: "Apr 2022",
   },
 ];
 
@@ -178,5 +186,43 @@ export const ctaButtons = [
   {
     text: "Get in touch",
     to: "/contact",
+  },
+];
+
+export const education = [
+  {
+    school: "Arcada University of Applied Sciences",
+    logo: (
+      <img
+        src="https://www.arcada.fi/themes/custom/arcada/img/logo.svg"
+        className="h-16"
+      ></img>
+    ),
+    logoDark: (
+      <img
+        src="https://www.arcada.fi/themes/custom/arcada/img/logo-negative.svg"
+        className="h-16"
+      ></img>
+    ),
+    degree: "Bachelor of Engineering",
+    field: "Information Technology",
+    from: "2023",
+    to: "Ongoing",
+    website: "https://www.arcada.fi",
+    programmeWebsite:
+      "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/information-technology-swedish-programme",
+  },
+];
+
+export const socialLinks = [
+  {
+    name: "GitHub",
+    logo: <Github />,
+    url: "https://github.com/Terper",
+  },
+  {
+    name: "LinkedIn",
+    logo: <Linkedin />,
+    url: "https://www.linkedin.com/in/jann-totterman/",
   },
 ];
