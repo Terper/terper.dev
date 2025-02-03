@@ -1,10 +1,10 @@
-import { createFileRoute } from '@tanstack/react-router'
-import PageContainer from '../components/PageContainer'
+import { createFileRoute } from "@tanstack/react-router";
+import PageWrapper from "../components/PageWrapper";
 
-export const Route = createFileRoute('/about')({
+export const Route = createFileRoute("/about")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <PageContainer>Hello "/about"!</PageContainer>
+  return <PageWrapper>Hello "/about"!</PageWrapper>;
 }
