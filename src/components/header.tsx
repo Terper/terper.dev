@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
         <div className="flex items-center gap-4">
           <nav
-            className={`absolute inset-0 flex-col h-dvh items-center justify-center gap-4 ${isMenuOpen ? "flex z-40 md:z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:backdrop-blur-none md:bg-transparent md:supports-[backdrop-filter]:bg-transparent text-xl md:text-base" : "hidden md:flex"} md:flex-row md:inset-auto md:relative md:h-auto`}
+            className={`absolute inset-0 flex-col h-dvh items-center justify-center gap-4 ${isMenuOpen ? "flex z-40 md:z-50 bg-background md:bg-transparent text-xl md:text-base" : "hidden md:flex"} md:flex-row md:inset-auto md:relative md:h-auto`}
           >
             {navItems.map((item, index) => (
               <Link
