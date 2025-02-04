@@ -1,6 +1,5 @@
 import hexasweper from "/assets/hexasweeper.png";
 import battleGame from "/assets/battle-game.png";
-import alandNews from "/assets/aland-news.png";
 import casino from "/assets/casino.png";
 import startsida from "/assets/startsida.png";
 import lockify from "/assets/lockify.png";
