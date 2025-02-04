@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";
@@ -18,40 +19,44 @@ const Education = () => {
         <div className="flex flex-col gap-4">
           {education.map((item, index) => (
             <Card key={index}>
-              <CardHeader>
-                <CardTitle>
-                  <div className="flex justify-between items-center ">
-                    <Link
-                      className="text-xl hover:underline"
-                      to={item.website}
-                      target="_blank"
-                    >
-                      {item.school}
-                    </Link>
+              <CardHeader className="flex md:flex-row justify-between gap-4 items-start space-y-0">
+                <div className="">
+                  <CardTitle>
+                    <div className="flex justify-between items-center ">
+                      <Link
+                        className="text-xl hover:underline"
+                        to={item.website}
+                        target="_blank"
+                      >
+                        {item.school}
+                      </Link>
+                    </div>
+                  </CardTitle>
+                  <CardDescription className="text-lg flex flex-col">
+                    {item.programmeWebsite ? (
+                      <Link
+                        className=" hover:underline"
+                        to={item.programmeWebsite ?? ""}
+                        target="_blank"
+                      >
+                        {item.degree} - {item.field}
+                      </Link>
+                    ) : (
+                      <>
+                        <span>
+                          {item.degree} - {item.field}
+                        </span>
+                      </>
+                    )}
+
                     <span>
                       {item.from} - {item.to}
                     </span>
-                  </div>
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  {item.programmeWebsite ? (
-                    <Link
-                      className="text-lg hover:underline"
-                      to={item.programmeWebsite ?? ""}
-                      target="_blank"
-                    >
-                      {item.degree} - {item.field}
-                    </Link>
-                  ) : (
-                    <>
-                      {item.degree} - {item.field}
-                    </>
-                  )}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
+                  </CardDescription>
+                </div>
+
                 {theme === "dark" ? (item.logoDark ?? item.logo) : item.logo}
-              </CardContent>
+              </CardHeader>
             </Card>
           ))}
         </div>

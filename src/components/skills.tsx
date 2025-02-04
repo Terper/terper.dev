@@ -10,9 +10,7 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <Card key={index} className="lg:h-fit">
               <CardHeader>
-                <CardTitle className="text-xl text-center">
-                  {skill.category}
-                </CardTitle>
+                <CardTitle className="text-xl">{skill.category}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="grid grid-cols-3 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2">

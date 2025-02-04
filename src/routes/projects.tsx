@@ -29,14 +29,12 @@ function RouteComponent() {
               <CardDescription className="text-lg">
                 {project.description}
               </CardDescription>
-              <CardContent className="flex gap-2 flex-col">
+              <CardContent className="flex gap-4 flex-col">
                 <img
                   src={project.image}
                   alt={"Image of " + project.name}
                   className="mt-4"
                 />
-              </CardContent>
-              <CardFooter className="flex justify-between">
                 <div className="flex gap-2">
                   <Button asChild>
                     <Link to={project.url} target="_blank">
@@ -50,6 +48,8 @@ function RouteComponent() {
                     </Link>
                   </Button>
                 </div>
+              </CardContent>
+              <CardFooter className="flex justify-end">
                 <div className="flex gap-2 flex-wrap justify-end">
                   {generateSkillArray(project.skills).map((skill, index) => (
                     <Badge variant="outline" key={index} className="flex gap-2">

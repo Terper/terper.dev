@@ -21,9 +21,9 @@ const Experience = () => {
         <div className="flex flex-col gap-4">
           {experience.map((item, index) => (
             <Card key={index}>
-              <CardHeader>
-                <CardTitle>
-                  <div className="flex justify-between items-center">
+              <CardHeader className="sm:flex-row justify-between gap-4 items-start space-y-0">
+                <div>
+                  <CardTitle>
                     <Link
                       to={item.link}
                       className="text-xl hover:underline"
@@ -31,31 +31,35 @@ const Experience = () => {
                     >
                       {item.company}
                     </Link>
+                  </CardTitle>
+                  <CardDescription className="text-lg flex flex-col">
+                    <span>{item.role}</span>
                     <span>
                       {item.from} - {item.to}
                     </span>
-                  </div>
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  {item.role}
-                </CardDescription>
+                  </CardDescription>
+                </div>
+                <div className="">
+                  {theme === "dark" ? (item.logoDark ?? item.logo) : item.logo}
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="flex justify-between flex-col gap-4 md:flex-row">
-                  {theme === "dark" ? (item.logoDark ?? item.logo) : item.logo}
                   <p className="max-w-lg">{item.description}</p>
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-end flex-wrap gap-2">
-                {generateSkillArray(item.skills).map((skill, index) => (
-                  <Badge variant="outline" key={index} className="flex gap-2">
-                    <img
-                      className="w-4 h-4 m-1"
-                      src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
-                    />
-                    <span className="text-nowrap">{skill.text}</span>
-                  </Badge>
-                ))}
+              <CardFooter className="flex flex-col gap-4 items-start">
+                <div className="flex justify-end flex-wrap gap-2 self-end">
+                  {generateSkillArray(item.skills).map((skill, index) => (
+                    <Badge variant="outline" key={index} className="flex gap-2">
+                      <img
+                        className="w-4 h-4 m-1"
+                        src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
+                      />
+                      <span className="text-nowrap text-2xs">{skill.text}</span>
+                    </Badge>
+                  ))}
+                </div>
               </CardFooter>
             </Card>
           ))}
