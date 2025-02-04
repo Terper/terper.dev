@@ -1,13 +1,6 @@
 import { education } from "@/index-data";
 import { useTheme } from "./theme-provider";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Link } from "@tanstack/react-router";
 
 const Education = () => {
