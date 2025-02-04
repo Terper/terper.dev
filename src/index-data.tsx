@@ -99,6 +99,10 @@ export const skills = [
         text: "Unity",
         icon: "unity",
       },
+      {
+        text: "Bun",
+        icon: "bun",
+      },
     ],
   },
   {
