@@ -1,4 +1,8 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import {
+  createRootRoute,
+  Outlet,
+  ScrollRestoration,
+} from "@tanstack/react-router";
 import NotFound from "../components/not-found";
 import { Suspense } from "react";
 import { TanStackRouterDevtools } from "../dev-tools";
@@ -9,6 +13,7 @@ import { Toaster } from "@/components/ui/toaster";
 export const Route = createRootRoute({
   component: () => (
     <>
+      <ScrollRestoration />
       <div className="min-h-screen">
         <Header />
         <main className="">
