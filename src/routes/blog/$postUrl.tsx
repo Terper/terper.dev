@@ -49,7 +49,10 @@ export const Route = createFileRoute("/blog/$postUrl")({
   component: RouteComponent,
   loader(ctx) {
     const { params } = ctx;
-    const mdFile = new URL("/blog/" + params.postUrl + ".md", import.meta.url);
+    const mdFile = new URL(
+      "/public/" + params.postUrl + ".md",
+      import.meta.url
+    );
     if (!mdFile) {
       return notFound();
     }
