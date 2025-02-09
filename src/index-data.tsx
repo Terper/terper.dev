@@ -229,6 +229,12 @@ export const education = [
     logo: (
       <img
         src="https://www.gymnasium.ax/sites/default/files/images/page_section_logo/logo_ayg_white_0.svg"
+        className="h-16 invert"
+      ></img>
+    ),
+    logoDark: (
+      <img
+        src="https://www.gymnasium.ax/sites/default/files/images/page_section_logo/logo_ayg_white_0.svg"
         className="h-16"
       ></img>
     ),
