@@ -11,4 +11,8 @@ export const navItems = [
     text: "Contact",
     to: "/contact",
   },
+  {
+    text: "Blog",
+    to: "/blog",
+  },
 ];
