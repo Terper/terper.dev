@@ -43,41 +43,27 @@ interface BlogPost {
   title: string;
   url: string;
   date: string;
+  content: string;
 }
 
 export const Route = createFileRoute("/blog/$postUrl")({
   component: RouteComponent,
   loader(ctx) {
     const { params } = ctx;
-    const mdFile = new URL("/blog/" + params.postUrl + ".md", import.meta.url);
-    if (!mdFile) {
-      return notFound();
-    }
     const blogPostIndex = blogData.findIndex(
       (post) => post.url === params.postUrl
     );
-    return { blogData: blogData[blogPostIndex], mdFile: mdFile };
+    if (blogPostIndex === -1) {
+      return notFound();
+    }
+    return blogData[blogPostIndex];
   },
   notFoundComponent: () => <NotFound />,
 });
 
 function RouteComponent() {
   const { theme } = useTheme();
-  const { blogData, mdFile } = Route.useLoaderData() as {
-    blogData: BlogPost;
-    mdFile: URL;
-  };
-
-  const { data, status, error } = useQuery({
-    queryKey: [mdFile.href],
-    queryFn: async () => {
-      const response = await fetch(mdFile.href);
-      if (!response.ok) {
-        throw new Error("Failed to load markdown file");
-      }
-      return await response.text();
-    },
-  });
+  const blogData = Route.useLoaderData() as BlogPost;
 
   return (
     <section className="max-w-5xl m-auto px-4 py-4 md:py-8 lg:py-16 flex flex-col gap-8">
@@ -104,68 +90,59 @@ function RouteComponent() {
           <CardDescription>{generateBlogDate(blogData.date)}</CardDescription>
         </CardHeader>
         <CardContent>
-          {status === "error" && error.message}
-          {status === "pending" && (
-            <div>
-              <LoaderCircle className="animate-spin" />
-              Loading
-            </div>
-          )}
-          {status === "success" && (
-            <Markdown
-              rehypePlugins={[remarkGfm, rehypeRaw]}
-              className="flex flex-col gap-4"
-              components={{
-                code: (props) => {
-                  const { children, className, node, ...rest } = props;
-                  const match = /language-(\w+)/.exec(className || "");
-                  return match ? (
-                    <SyntaxHighlighter
-                      {...(rest as any)}
-                      PreTag="div"
-                      children={String(children).replace(/\n$/, "")}
-                      language={match[1]}
-                      style={theme === "dark" ? oneDark : oneLight}
-                    />
-                  ) : (
-                    <code {...rest} className={className}>
-                      <Badge variant="secondary">{children}</Badge>
-                    </code>
-                  );
-                },
-                h1: (props) => <h1 className="text-3xl" {...props} />,
-                h2: (props) => <h2 className="text-2xl" {...props} />,
-                h3: (props) => <h3 className="text-xl" {...props} />,
-                h4: (props) => <h4 className="text-lg" {...props} />,
-                h5: (props) => <h5 className="text-md" {...props} />,
-                h6: (props) => <h6 className="text-md" {...props} />,
-                table: (props) => (
-                  <Table className="max-w-fit">{props.children}</Table>
-                ),
-                thead: (props) => <TableHeader>{props.children}</TableHeader>,
-                th: (props) => <TableHead>{props.children}</TableHead>,
-                tbody: (props) => <TableBody>{props.children}</TableBody>,
-                tr: (props) => <TableRow>{props.children}</TableRow>,
-                td: (props) => <TableCell>{props.children}</TableCell>,
-                hr: (props) => <Separator {...props} />,
-                a: (props) => (
-                  <Link to={props.href as string} className="hover:underline">
-                    {props.children}
-                  </Link>
-                ),
-                ol: (props) => <ol className="list-decimal" {...props} />,
-                ul: (props) => <ul className="list-disc" {...props} />,
-                li: (props) => <li className="ml-4" {...props} />,
-                blockquote: (props) => (
-                  <blockquote className="pl-4 mt-2 border-l border-border">
-                    {props.children}
-                  </blockquote>
-                ),
-              }}
-            >
-              {data}
-            </Markdown>
-          )}
+          <Markdown
+            rehypePlugins={[remarkGfm, rehypeRaw]}
+            className="flex flex-col gap-4"
+            components={{
+              code: (props) => {
+                const { children, className, node, ...rest } = props;
+                const match = /language-(\w+)/.exec(className || "");
+                return match ? (
+                  <SyntaxHighlighter
+                    {...(rest as any)}
+                    PreTag="div"
+                    children={String(children).replace(/\n$/, "")}
+                    language={match[1]}
+                    style={theme === "dark" ? oneDark : oneLight}
+                  />
+                ) : (
+                  <code {...rest} className={className}>
+                    <Badge variant="secondary">{children}</Badge>
+                  </code>
+                );
+              },
+              h1: (props) => <h1 className="text-3xl" {...props} />,
+              h2: (props) => <h2 className="text-2xl" {...props} />,
+              h3: (props) => <h3 className="text-xl" {...props} />,
+              h4: (props) => <h4 className="text-lg" {...props} />,
+              h5: (props) => <h5 className="text-md" {...props} />,
+              h6: (props) => <h6 className="text-md" {...props} />,
+              table: (props) => (
+                <Table className="max-w-fit">{props.children}</Table>
+              ),
+              thead: (props) => <TableHeader>{props.children}</TableHeader>,
+              th: (props) => <TableHead>{props.children}</TableHead>,
+              tbody: (props) => <TableBody>{props.children}</TableBody>,
+              tr: (props) => <TableRow>{props.children}</TableRow>,
+              td: (props) => <TableCell>{props.children}</TableCell>,
+              hr: (props) => <Separator {...props} />,
+              a: (props) => (
+                <Link to={props.href as string} className="hover:underline">
+                  {props.children}
+                </Link>
+              ),
+              ol: (props) => <ol className="list-decimal" {...props} />,
+              ul: (props) => <ul className="list-disc" {...props} />,
+              li: (props) => <li className="ml-4" {...props} />,
+              blockquote: (props) => (
+                <blockquote className="pl-4 mt-2 border-l border-border">
+                  {props.children}
+                </blockquote>
+              ),
+            }}
+          >
+            {blogData.content}
+          </Markdown>
         </CardContent>
       </Card>
     </section>

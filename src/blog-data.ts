@@ -1,3 +1,5 @@
+import markdownTest from "/blog/markdown-test.md";
+
 export const blogData = [
   {
     url: "markdown-test",
@@ -5,5 +7,6 @@ export const blogData = [
     short:
       "A test of markdown rendering and markdown file loading for this blog.",
     title: "Markdown rendering test",
+    content: markdownTest,
   },
 ];
