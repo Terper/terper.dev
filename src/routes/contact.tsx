@@ -92,93 +92,93 @@ function RouteComponent() {
   });
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-5xl m-auto px-4 py-4 md:py-8 lg:py-16"
-      >
-        <input
-          type="hidden"
-          value={form.watch("access_key")}
-          {...form.register("access_key")}
-        />
-        <input
-          type="hidden"
-          value={form.watch("subject")}
-          {...form.register("subject")}
-        />
-        <input
-          type="checkbox"
-          className="hidden"
-          value={form.watch("botcheck")}
-          {...form.register("botcheck")}
-        />
-        <Card className="">
-          <CardHeader>
-            <CardTitle>Contact me by filling out the form</CardTitle>
-            <CardDescription>
-              Or send me an email at{" "}
-              <a
-                href="mailto:jann.totterman@gmail.com"
-                target="_blank"
-                className="hover:underline"
-              >
-                jann.totterman@gmail.com
-              </a>
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <FormField
-              name={"name"}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              name={"email"}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              name={"message"}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message</FormLabel>
-                  <FormControl>
-                    <Textarea {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </CardContent>
-          <CardFooter>
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? (
-                <>
-                  <Loader2 className="animate-spin" />
-                  Sending
-                </>
-              ) : (
-                "Send"
-              )}
-            </Button>
-          </CardFooter>
-        </Card>
-      </form>
-    </Form>
+    <section className="max-w-5xl m-auto px-4 py-4 md:py-8 lg:py-16 flex flex-col gap-8">
+      <h2 className="text-3xl">Contact</h2>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <input
+            type="hidden"
+            value={form.watch("access_key")}
+            {...form.register("access_key")}
+          />
+          <input
+            type="hidden"
+            value={form.watch("subject")}
+            {...form.register("subject")}
+          />
+          <input
+            type="checkbox"
+            className="hidden"
+            value={form.watch("botcheck")}
+            {...form.register("botcheck")}
+          />
+          <Card>
+            <CardHeader>
+              <CardTitle>Contact me by filling out the form</CardTitle>
+              <CardDescription>
+                Or send me an email at{" "}
+                <a
+                  href="mailto:jann.totterman@gmail.com"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  jann.totterman@gmail.com
+                </a>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <FormField
+                name={"name"}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name={"email"}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name={"message"}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </CardContent>
+            <CardFooter>
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="animate-spin" />
+                    Sending
+                  </>
+                ) : (
+                  "Send"
+                )}
+              </Button>
+            </CardFooter>
+          </Card>
+        </form>
+      </Form>
+    </section>
   );
 }
