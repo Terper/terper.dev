@@ -14,4 +14,9 @@ const generateSkillArray = (skillArray: string[]) => {
   return output;
 };
 
-export { generateSkillArray };
+const generateBlogDate = (date: string) => {
+  const dateObj = new Date(date);
+  return dateObj.toLocaleDateString();
+};
+
+export { generateSkillArray, generateBlogDate };
