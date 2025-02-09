@@ -36,8 +36,6 @@ import { Separator } from "@/components/ui/separator";
 import { useTheme } from "@/components/theme-provider";
 import rehypeRaw from "rehype-raw";
 import { Badge } from "@/components/ui/badge";
-import { useQuery } from "@tanstack/react-query";
-import { LoaderCircle } from "lucide-react";
 
 interface BlogPost {
   title: string;
