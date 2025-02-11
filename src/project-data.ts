@@ -4,6 +4,7 @@ import casino from "/assets/casino.png";
 import startsida from "/assets/startsida.png";
 import lockify from "/assets/lockify.png";
 import emmasflowers from "/assets/emmasflowers.png";
+import lunchbokning from "/assets/lunchbokning.png";
 
 export const projects = [
   {
@@ -12,6 +13,14 @@ export const projects = [
     url: "https://hexasweeper.terper.dev",
     repo: "https://github.com/terper/hexasweeper",
     image: hexasweper,
+    skills: ["TypeScript", "React", "Tailwind CSS"],
+  },
+  {
+    name: "Hjortens interna lunchbokning",
+    description:
+      "A booking system for teachers to book lunch for their student at Hotell- and Restaurangskola. Exam project.",
+    repo: "https://github.com/Terper/lunchbokning",
+    image: lunchbokning,
     skills: ["TypeScript", "React", "Tailwind CSS"],
   },
   {
@@ -32,15 +41,6 @@ export const projects = [
     skills: ["JavaScript", "Vue", "Tailwind CSS"],
   },
   {
-    name: "Startpage",
-    description:
-      "A startpage with different widgets that connect to different APIs. A course project.",
-    repo: "https://github.com/Terper/startsida",
-    url: "https://wdbcms24-startpage.pages.dev/",
-    image: startsida,
-    skills: ["React", "TypeScript", "Tailwind CSS"],
-  },
-  {
     name: "Emma's Flowers",
     description: "A website for a fictional flower shop. A course project.",
     url: "https://terper.github.io/emmasflowers/",
@@ -55,6 +55,15 @@ export const projects = [
     url: "https://people.arcada.fi/~totterja/casino/index.html",
     image: casino,
     skills: ["JavaScript", "CSS"],
+  },
+  {
+    name: "Startpage",
+    description:
+      "A startpage with different widgets that connect to different APIs. A course project.",
+    repo: "https://github.com/Terper/startsida",
+    url: "https://wdbcms24-startpage.pages.dev/",
+    image: startsida,
+    skills: ["React", "TypeScript", "Tailwind CSS"],
   },
   {
     name: "Startpage-API",
@@ -75,13 +84,6 @@ export const projects = [
     description: "A command line based tic-tac-toe game. A course project.",
     repo: "https://github.com/Terper/Tic-Tac-Toe",
     skills: ["Java"],
-  },
-  {
-    name: "Hjortens interna lunchbokning",
-    description:
-      "A booking system for teachers to book lunch for their student at the school restaurant. Exam project.",
-    repo: "https://github.com/Terper/lunchbokning",
-    skills: ["TypeScript", "React", "Tailwind CSS"],
   },
   {
     name: "Åland News API",
