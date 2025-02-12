@@ -20,7 +20,7 @@ const Skills = () => {
                       className="flex flex-col gap-2 justify-center items-center"
                     >
                       <img
-                        className="w-8 h-8"
+                        className={`w-8 h-8 ${item.darkIncompatible ? "dark:invert" : ""}`}
                         src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${item.icon}/${item.icon}-original.svg`}
                       />
                       <span className="text-sm text-nowrap">{item.text}</span>

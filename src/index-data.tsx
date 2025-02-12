@@ -69,10 +69,12 @@ export const skills = [
       {
         text: "Flask",
         icon: "flask",
+        darkIncompatible: true,
       },
       {
         text: "Express",
         icon: "express",
+        darkIncompatible: true,
       },
     ],
   },
