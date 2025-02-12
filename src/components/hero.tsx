@@ -6,7 +6,12 @@ const Hero = () => {
   return (
     <section className="bg-gradient-to-r dark:from-blue-500 dark:to-purple-600 from-blue-300 to-purple-400">
       <div className="max-w-5xl m-auto px-4 py-16 md:py-24 lg:py-32 xl:py-48 flex flex-col gap-4">
-        <h1 className="text-4xl font-bold">Hello 👋</h1>
+        <h1 className="text-4xl font-bold">
+          Hello
+          <div className="animate-waving-hand inline-block origin-[70%_70%]">
+            👋
+          </div>
+        </h1>
         <p className="text-lg">
           I'm Jann, also known as Terper online.
           <br />
