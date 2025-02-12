@@ -64,7 +64,7 @@ export default {
         },
       },
       animation: {
-        "waving-hand": "wave-animation 2.5s linear infinite",
+        "waving-hand": "wave-animation 2.5s ease-in-out infinite",
       },
     },
   },

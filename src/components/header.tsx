@@ -8,7 +8,7 @@ import { useState } from "react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <header className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <header className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b z-50">
       <div className="flex justify-between items-center py-2 z-50 max-w-5xl m-auto ">
         <Link to="/" className="ml-4 z-50">
           <h1 className="text-lg font-bold font-mono">terper.dev</h1>
