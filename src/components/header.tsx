@@ -40,7 +40,11 @@ const Header = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden ml-2"
             >
-              {isMenuOpen ? <X></X> : <Menu></Menu>}
+              <div
+                className={`transition-transform duration-300 ${isMenuOpen ? "rotate-90" : "rotate-0"}`}
+              >
+                {isMenuOpen ? <X></X> : <Menu></Menu>}
+              </div>
             </Button>
           </div>
         </div>
