@@ -9,13 +9,17 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b z-50">
-      <div className="flex justify-between items-center py-2 z-50 max-w-5xl m-auto ">
+      <div className="flex justify-between items-center py-2 z-50 max-w-5xl m-auto">
         <Link to="/" className="ml-4 z-50">
           <h1 className="text-lg font-bold font-mono">terper.dev</h1>
         </Link>
         <div className="flex items-center gap-4">
           <nav
-            className={`absolute inset-0 flex-col h-dvh items-center justify-center gap-4 ${isMenuOpen ? "flex z-40 md:z-50 bg-background md:bg-transparent text-xl md:text-base" : "hidden md:flex"} md:flex-row md:inset-auto md:relative md:h-auto`}
+            className={`absolute inset-0 flex flex-col h-dvh items-center justify-center gap-4 transition-all duration-300 transform ${
+              isMenuOpen
+                ? "opacity-100 visible z-40 md:z-50 bg-background md:bg-transparent text-xl md:text-base translate-y-0"
+                : "opacity-0 invisible md:opacity-100 md:visible -translate-y-full md:translate-y-0"
+            } md:flex-row md:inset-auto md:relative md:h-auto`}
           >
             {navItems.map((item, index) => (
               <Link
