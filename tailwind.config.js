@@ -62,9 +62,27 @@ export default {
           "60%": { transform: "rotate(0.0deg)" },
           "100%": { transform: "rotate(0.0deg)" },
         },
+        "blink-animation": {
+          "0%": {
+            opacity: "0",
+          },
+          "0.1%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "1",
+          },
+          "50.1%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
       },
       animation: {
         "waving-hand": "wave-animation 2.5s ease-in-out infinite",
+        blink: "blink-animation 1s infinite",
       },
     },
   },
