@@ -59,7 +59,7 @@ function RouteComponent() {
                 {generateSkillArray(project.skills).map((skill, index) => (
                   <Badge variant="outline" key={index} className="flex gap-2">
                     <img
-                      className="w-4 h-4 m-1"
+                      className={`w-4 h-4 m-1 ${skill.darkIncompatible ? "dark:invert selection:invert-0" : ""}`}
                       src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
                     />
                     <span className="text-nowrap">{skill.text}</span>
