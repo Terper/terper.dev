@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:pages": "bunx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint"
   },
