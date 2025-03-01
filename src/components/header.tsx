@@ -1,16 +1,32 @@
-import { Link } from "@tanstack/react-router";
-import { ModeToggle } from "./mode-toggle";
-import { navItems } from "@/nav-items";
-import { Button } from "./ui/button";
+"use client";
+
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import ModeToggle from "./mode-toggle";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const Header = () => {
+  const navItems = [
+    {
+      text: "Home",
+      href: "/",
+    },
+    {
+      text: "Projects",
+      href: "/projects",
+    },
+    {
+      text: "Contact",
+      href: "/contact",
+    },
+  ];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b z-50">
       <div className="flex justify-between items-center py-2 z-50 max-w-5xl m-auto">
-        <Link to="/" className="ml-4 z-50">
+        <Link href="/" className="ml-4 z-50">
           <h1 className="text-lg font-bold font-mono">terper.dev</h1>
         </Link>
         <div className="flex items-center gap-4">
@@ -25,7 +41,7 @@ const Header = () => {
               <Link
                 onClick={() => setIsMenuOpen(false)}
                 key={index}
-                to={item.to}
+                href={item.href}
                 className="transition-colors hover:text-foreground/80 [&.active]:text-foreground text-foreground/60"
               >
                 {item.text}
@@ -41,7 +57,9 @@ const Header = () => {
               className="md:hidden ml-2"
             >
               <div
-                className={`transition-transform duration-300 ${isMenuOpen ? "rotate-90" : "rotate-0"}`}
+                className={`transition-transform duration-300 ${
+                  isMenuOpen ? "rotate-90" : "rotate-0"
+                }`}
               >
                 {isMenuOpen ? <X></X> : <Menu></Menu>}
               </div>
