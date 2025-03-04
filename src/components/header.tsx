@@ -5,8 +5,10 @@ import { useState } from "react";
 import ModeToggle from "./mode-toggle";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [
     {
       text: "Home",
@@ -22,7 +24,8 @@ const Header = () => {
     },
   ];
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathName = usePathname();
+
   return (
     <header className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b z-50">
       <div className="flex justify-between items-center py-2 z-50 max-w-5xl m-auto">
@@ -42,7 +45,11 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
                 key={index}
                 href={item.href}
-                className="transition-colors hover:text-foreground/80 [&.active]:text-foreground text-foreground/60"
+                className={`transition-colors hover:text-foreground/80 ${
+                  pathName === item.href
+                    ? "text-foreground"
+                    : "text-foreground/60"
+                }`}
               >
                 {item.text}
               </Link>
@@ -54,7 +61,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden ml-2"
+              className="md:hidden ml-2 cursor-pointer"
             >
               <div
                 className={`transition-transform duration-300 ${
