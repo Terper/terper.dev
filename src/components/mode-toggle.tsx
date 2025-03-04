@@ -11,6 +11,7 @@ const ModeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="cursor-pointer"
     >
       <Sun className="dark:scale-0" />
       <Moon className="absolute scale-0 dark:scale-100" />

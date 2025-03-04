@@ -13,8 +13,7 @@ const Providers = (props: Props) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider
         attribute="class"
-        defaultTheme="system"
-        enableSystem
+        defaultTheme="dark"
         disableTransitionOnChange
       >
         {props.children}

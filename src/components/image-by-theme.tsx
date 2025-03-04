@@ -21,7 +21,6 @@ const ImageByTheme = (props: Props) => {
     setSrc(theme === "dark" ? props.dark ?? props.light : props.light);
   }, [theme, props.dark, props.light]);
 
-  console.log(theme);
   return (
     <Image
       suppressHydrationWarning
