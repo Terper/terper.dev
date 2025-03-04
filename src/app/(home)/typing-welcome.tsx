@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 
+const texts = ["Hello", "Hej", "Hallo"];
+
 const TypingWelcome = () => {
   const [index, setIndex] = useState(0);
-  const texts = ["Hello", "Hej", "Hallo"];
   const [text, setText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -32,7 +33,7 @@ const TypingWelcome = () => {
         setTimeout(() => setIsDeleting(true), 5000); // Wait before deleting
       }
     }
-  }, [charIndex, isDeleting, index, texts]);
+  }, [charIndex, isDeleting, index]);
 
   return <>{text}</>;
 };
