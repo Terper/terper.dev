@@ -87,6 +87,13 @@ const projects = [
     skills: ["Python", "Flask", "PostgreSQL"],
   },
   {
+    name: "drone-delivery",
+    description:
+      "A program to calculate the shortest path for a drone delivery service using the A* algorithm. A course project.",
+    repo: "https://github.com/Terper/drone-delivery",
+    skills: ["Java"],
+  },
+  {
     name: "Datingsite",
     description:
       "A dating site connected to a MySQL database. A course project.",
